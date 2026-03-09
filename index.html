@@ -18,11 +18,10 @@
         })(window, document, "clarity", "script", "vswm5zqqdq");
     </script>
     <meta charset="UTF-8">
-...
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>아이언 스트렝스 | 정밀 1RM 측정 및 체급별 근력 백분위 계산기</title>
     <meta name="description" content="Epley 공식과 체급별 보정 계수를 적용하여 당신의 정확한 1RM과 체급 내 근력 상위 퍼센트를 확인하세요.">
     <meta name="google-adsense-account" content="ca-pub-1100672299193736">
-...
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1100672299193736"
      crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
@@ -37,9 +36,10 @@
     <div class="nav-container">
         <a href="#" class="nav-logo">IRON STRENGTH</a>
         <ul class="nav-menu">
-            <li><a href="#calculator">계산기</a></li>
-            <li><a href="#about">알고리즘 설명</a></li>
-            <li><a href="#standards">근력 기준표</a></li>
+            <li><a href="#calculator" data-i18n="calculator">계산기</a></li>
+            <li><a href="#about" data-i18n="algorithm">알고리즘 설명</a></li>
+            <li><a href="#standards" data-i18n="standards">근력 기준표</a></li>
+            <li><button id="lang-toggle" onclick="toggleLanguage()" class="lang-btn">ENG</button></li>
         </ul>
     </div>
 </nav>
@@ -49,39 +49,43 @@
     <section id="calculator" class="section">
         <div class="container">
             <header>
-                <h1>IRON STRENGTH</h1>
-                <p class="subtitle">당신의 한계를 측정하라</p>
-                <p class="info-text">체급별 보정 계수(Allometric Scaling)가 적용된 정밀 측정</p>
+                <h1 data-i18n="title">IRON STRENGTH</h1>
+                <p class="subtitle" data-i18n="subtitle">당신의 한계를 측정하라</p>
+                <p class="info-text" data-i18n="infoText">체급별 보정 계수(Allometric Scaling)가 적용된 정밀 측정</p>
             </header>
 
             <div class="input-group">
-                <label>운동 종목</label>
+                <label data-i18n="liftType">운동 종목</label>
                 <select id="exercise">
-                    <option value="bench">벤치프레스 (BENCH PRESS)</option>
-                    <option value="squat">스쿼트 (SQUAT)</option>
-                    <option value="deadlift">데드리프트 (DEADLIFT)</option>
+                    <option value="bench" data-i18n="bench">벤치프레스 (BENCH PRESS)</option>
+                    <option value="squat" data-i18n="squat">스쿼트 (SQUAT)</option>
+                    <option value="deadlift" data-i18n="deadlift">데드리프트 (DEADLIFT)</option>
                 </select>
             </div>
 
             <div class="input-group">
-                <label>현재 체중 (KG)</label>
+                <label data-i18n="bodyweight">현재 체중 (KG)</label>
                 <input type="number" id="bodyweight" placeholder="예: 75">
             </div>
 
             <div class="input-group">
-                <label>리프팅 중량 (KG)</label>
+                <label data-i18n="weight">리프팅 중량 (KG)</label>
                 <input type="number" id="weight" placeholder="예: 100">
             </div>
 
             <div class="input-group">
-                <label>반복 횟수 (REPS)</label>
+                <label data-i18n="reps">반복 횟수 (REPS)</label>
                 <input type="number" id="reps" placeholder="1" value="1" max="10">
-                <p class="input-helper">* 10회 이하로 입력 시 가장 정확합니다.</p>
+                <p class="input-helper" data-i18n="helper">* 10회 이하로 입력 시 가장 정확합니다.</p>
             </div>
-            <button onclick="calculate()">전투력 측정</button>
+            <button onclick="calculate()" data-i18n="calculate">전투력 측정</button>
 
             <div id="result" class="result">
                 <!-- 결과 표시 -->
+            </div>
+            
+            <div class="disclaimer" data-i18n="disclaimer">
+                * 체급별 보정 계수(Allometric Scaling)를 적용한 통계 데이터 기준입니다.
             </div>
         </div>
     </section>
@@ -89,7 +93,7 @@
     <!-- 정보성 콘텐츠 섹션 1 -->
     <section id="about" class="section text-content">
         <div class="container">
-            <h2>1RM 계산의 과학적 원리</h2>
+            <h2 data-i18n="algorithm">1RM 계산의 과학적 원리</h2>
             <p>1RM(One Repetition Maximum)은 단 한 번의 반복으로 들어올릴 수 있는 최대 무게를 의미합니다. 직접적인 1RM 측정은 부상의 위험이 크기 때문에, 본 서비스는 검증된 <b>Epley 공식</b>을 사용하여 안전하게 추정치를 계산합니다.</p>
             
             <h3>사용된 계산 공식</h3>
@@ -106,7 +110,7 @@
     <!-- 정보성 콘텐츠 섹션 2 -->
     <section id="standards" class="section text-content">
         <div class="container">
-            <h2>근력 성장을 위한 가이드</h2>
+            <h2 data-i18n="standards">근력 성장을 위한 가이드</h2>
             <p>자신의 현재 위치를 파악하는 것은 성장의 첫걸음입니다. 산출된 백분위는 일반적인 훈련 인구의 데이터를 기반으로 하며, 다음과 같은 기준으로 분류됩니다.</p>
             <ul>
                 <li><strong>입문자 (Beginner):</strong> 기초적인 자세 습득과 근신경계 활성화가 필요한 단계입니다.</li>
@@ -117,7 +121,7 @@
         </div>
     </section>
 
-    <!-- FAQ 섹션 (애드센스 콘텐츠 보강용) -->
+    <!-- FAQ 섹션 -->
     <section id="faq" class="section text-content" style="border-top: none;">
         <div class="container">
             <h2>자주 묻는 질문 (FAQ)</h2>
@@ -136,11 +140,11 @@
 
 <footer class="footer">
     <div class="container">
-        <p>&copy; 2026 IRON STRENGTH. All rights reserved.</p>
+        <p data-i18n="footerRights">&copy; 2026 IRON STRENGTH. All rights reserved.</p>
         <div class="footer-links">
-            <a href="privacy.html">개인정보처리방침</a> | 
-            <a href="terms.html">이용약관</a> | 
-            <a href="mailto:contact@example.com">문의하기</a>
+            <a href="privacy.html" data-i18n="privacy">개인정보처리방침</a> | 
+            <a href="terms.html" data-i18n="terms">이용약관</a> | 
+            <a href="mailto:contact@example.com" data-i18n="contact">문의하기</a>
         </div>
     </div>
 </footer>

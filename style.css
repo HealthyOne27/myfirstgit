@@ -73,10 +73,28 @@ body {
 .nav-menu {
     display: flex;
     list-style: none;
+    align-items: center;
 }
 
 .nav-menu li {
     margin-left: 2rem;
+}
+
+.lang-btn {
+    background: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    padding: 5px 10px;
+    font-family: var(--font-head);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-radius: 2px;
+}
+
+.lang-btn:hover {
+    background: var(--primary-color);
+    color: #000;
 }
 
 .nav-menu a {
