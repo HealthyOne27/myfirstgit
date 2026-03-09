@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IRON 1RM CALCULATOR</title>
+    <title>아이언 스트렝스 | 1RM 계산기</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -14,41 +14,42 @@
 <div class="container">
     <header>
         <h1>IRON STRENGTH</h1>
-        <p class="subtitle">UNLEASH YOUR POTENTIAL</p>
+        <p class="subtitle">당신의 한계를 측정하라</p>
+        <p class="info-text">당신의 체급에서 상위 몇 %인지 확인해보세요.</p>
     </header>
 
     <div class="input-group">
-        <label>LIFT TYPE</label>
+        <label>운동 종목</label>
         <select id="exercise">
-            <option value="bench">BENCH PRESS</option>
-            <option value="squat">SQUAT</option>
-            <option value="deadlift">DEADLIFT</option>
+            <option value="bench">벤치프레스 (BENCH PRESS)</option>
+            <option value="squat">스쿼트 (SQUAT)</option>
+            <option value="deadlift">데드리프트 (DEADLIFT)</option>
         </select>
     </div>
 
     <div class="input-group">
-        <label>BODYWEIGHT (KG)</label>
-        <input type="number" id="bodyweight" placeholder="75">
+        <label>현재 체중 (KG)</label>
+        <input type="number" id="bodyweight" placeholder="예: 75">
     </div>
 
     <div class="input-group">
-        <label>LIFT WEIGHT (KG)</label>
-        <input type="number" id="weight" placeholder="100">
+        <label>리프팅 중량 (KG)</label>
+        <input type="number" id="weight" placeholder="예: 100">
     </div>
 
     <div class="input-group">
-        <label>REPS PERFORMED</label>
+        <label>반복 횟수 (REPS)</label>
         <input type="number" id="reps" placeholder="1" value="1">
     </div>
 
-    <button onclick="calculate()">MEASURE POWER</button>
+    <button onclick="calculate()">전투력 측정</button>
 
     <div id="result" class="result">
-        <!-- Results will be injected here via JS -->
+        <!-- 결과가 여기에 표시됩니다 -->
     </div>
     
     <div class="disclaimer">
-        * Based on general strength standards relative to bodyweight.
+        * 체급별 보정 계수(Allometric Scaling)를 적용한 통계 데이터 기준입니다.
     </div>
 </div>
 

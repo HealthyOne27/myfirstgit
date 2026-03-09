@@ -57,11 +57,19 @@ header h1 {
 
 .subtitle {
     color: var(--primary-color);
-    font-size: 0.9rem;
-    letter-spacing: 3px;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
     margin-top: 0.5rem;
     text-transform: uppercase;
-    font-weight: 700;
+    font-weight: 900;
+}
+
+.info-text {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 400;
 }
 
 /* Inputs */
