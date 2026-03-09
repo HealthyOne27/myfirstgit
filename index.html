@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>아이언 스트렝스 | 1RM 계산기</title>
+    <title>아이언 스트렝스 | 정밀 1RM 측정 및 체급별 근력 백분위 계산기</title>
+    <meta name="description" content="Epley 공식과 체급별 보정 계수를 적용하여 당신의 정확한 1RM과 체급 내 근력 상위 퍼센트를 확인하세요.">
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Noto+Sans+KR:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
@@ -11,47 +12,102 @@
 
 <div class="background-overlay"></div>
 
-<div class="container">
-    <header>
-        <h1>IRON STRENGTH</h1>
-        <p class="subtitle">당신의 한계를 측정하라</p>
-        <p class="info-text">당신의 체급에서 상위 몇 %인지 확인해보세요.</p>
-    </header>
-
-    <div class="input-group">
-        <label>운동 종목</label>
-        <select id="exercise">
-            <option value="bench">벤치프레스 (BENCH PRESS)</option>
-            <option value="squat">스쿼트 (SQUAT)</option>
-            <option value="deadlift">데드리프트 (DEADLIFT)</option>
-        </select>
+<!-- 상단 네비게이션 -->
+<nav class="navbar">
+    <div class="nav-container">
+        <a href="#" class="nav-logo">IRON STRENGTH</a>
+        <ul class="nav-menu">
+            <li><a href="#calculator">계산기</a></li>
+            <li><a href="#about">알고리즘 설명</a></li>
+            <li><a href="#standards">근력 기준표</a></li>
+        </ul>
     </div>
+</nav>
 
-    <div class="input-group">
-        <label>현재 체중 (KG)</label>
-        <input type="number" id="bodyweight" placeholder="예: 75">
-    </div>
+<main class="main-content">
+    <!-- 계산기 섹션 -->
+    <section id="calculator" class="section">
+        <div class="container">
+            <header>
+                <h1>IRON STRENGTH</h1>
+                <p class="subtitle">당신의 한계를 측정하라</p>
+                <p class="info-text">체급별 보정 계수(Allometric Scaling)가 적용된 정밀 측정</p>
+            </header>
 
-    <div class="input-group">
-        <label>리프팅 중량 (KG)</label>
-        <input type="number" id="weight" placeholder="예: 100">
-    </div>
+            <div class="input-group">
+                <label>운동 종목</label>
+                <select id="exercise">
+                    <option value="bench">벤치프레스 (BENCH PRESS)</option>
+                    <option value="squat">스쿼트 (SQUAT)</option>
+                    <option value="deadlift">데드리프트 (DEADLIFT)</option>
+                </select>
+            </div>
 
-    <div class="input-group">
-        <label>반복 횟수 (REPS)</label>
-        <input type="number" id="reps" placeholder="1" value="1">
-    </div>
+            <div class="input-group">
+                <label>현재 체중 (KG)</label>
+                <input type="number" id="bodyweight" placeholder="예: 75">
+            </div>
 
-    <button onclick="calculate()">전투력 측정</button>
+            <div class="input-group">
+                <label>리프팅 중량 (KG)</label>
+                <input type="number" id="weight" placeholder="예: 100">
+            </div>
 
-    <div id="result" class="result">
-        <!-- 결과가 여기에 표시됩니다 -->
+            <div class="input-group">
+                <label>반복 횟수 (REPS)</label>
+                <input type="number" id="reps" placeholder="1" value="1">
+            </div>
+
+            <button onclick="calculate()">전투력 측정</button>
+
+            <div id="result" class="result">
+                <!-- 결과 표시 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 정보성 콘텐츠 섹션 1 -->
+    <section id="about" class="section text-content">
+        <div class="container">
+            <h2>1RM 계산의 과학적 원리</h2>
+            <p>1RM(One Repetition Maximum)은 단 한 번의 반복으로 들어올릴 수 있는 최대 무게를 의미합니다. 직접적인 1RM 측정은 부상의 위험이 크기 때문에, 본 서비스는 검증된 <b>Epley 공식</b>을 사용하여 안전하게 추정치를 계산합니다.</p>
+            
+            <h3>사용된 계산 공식</h3>
+            <div class="formula-box">
+                <code>1RM = w * (1 + r / 30)</code>
+                <p>(w: 중량, r: 반복 횟수)</p>
+            </div>
+
+            <h3>체급별 보정(Allometric Scaling)이란?</h3>
+            <p>단순히 '체중 대비 몇 배를 드는가'로 근력을 평가하는 것은 공정하지 않을 수 있습니다. 생물학적으로 체중이 가벼울수록 근육의 횡단면적이 체중 대비 넓어 상대적 근력이 높게 나타나는 경향이 있습니다. 아이언 스트렝스는 이러한 <b>Allometric Scaling</b> 기법을 적용하여, 당신의 체급에서 실제 근력 수준이 어느 정도인지 통계적으로 가장 유사한 백분위를 산출합니다.</p>
+        </div>
+    </section>
+
+    <!-- 정보성 콘텐츠 섹션 2 -->
+    <section id="standards" class="section text-content">
+        <div class="container">
+            <h2>근력 성장을 위한 가이드</h2>
+            <p>자신의 현재 위치를 파악하는 것은 성장의 첫걸음입니다. 산출된 백분위는 일반적인 훈련 인구의 데이터를 기반으로 하며, 다음과 같은 기준으로 분류됩니다.</p>
+            <ul>
+                <li><strong>입문자 (Beginner):</strong> 기초적인 자세 습득과 근신경계 활성화가 필요한 단계입니다.</li>
+                <li><strong>중급자 (Intermediate):</strong> 체계적인 프로그램과 영양 섭취를 통해 점진적 과부하를 실천하는 단계입니다.</li>
+                <li><strong>상급자 (Advanced):</strong> 자신의 약점을 파악하고 고도의 기술적 완성도를 갖춘 단계입니다.</li>
+                <li><strong>선수급 (Elite):</strong> 유전적 한계와 오랜 수련이 결합된 상위 1%의 영역입니다.</li>
+            </ul>
+        </div>
+    </section>
+</main>
+
+<footer class="footer">
+    <div class="container">
+        <p>&copy; 2026 IRON STRENGTH. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">개인정보처리방침</a> | 
+            <a href="#">이용약관</a> | 
+            <a href="#">문의하기</a>
+        </div>
     </div>
-    
-    <div class="disclaimer">
-        * 체급별 보정 계수(Allometric Scaling)를 적용한 통계 데이터 기준입니다.
-    </div>
-</div>
+</footer>
 
 <script src="main.js"></script>
 
