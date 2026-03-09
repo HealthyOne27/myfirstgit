@@ -1,182 +1,58 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<title>3대 운동 1RM 계산기</title>
-
-<style>
-body{
-    font-family: Arial;
-    background:#f2f4f7;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    height:100vh;
-}
-
-.container{
-    background:white;
-    padding:30px;
-    width:350px;
-    border-radius:10px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-h1{
-    text-align:center;
-}
-
-input,select,button{
-    width:100%;
-    padding:10px;
-    margin-top:10px;
-    border-radius:6px;
-    border:1px solid #ccc;
-}
-
-button{
-    background:#4CAF50;
-    color:white;
-    font-weight:bold;
-    border:none;
-    cursor:pointer;
-}
-
-button:hover{
-    background:#43a047;
-}
-
-.result{
-    margin-top:20px;
-    font-size:18px;
-    font-weight:bold;
-}
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IRON 1RM CALCULATOR</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
 
+<div class="background-overlay"></div>
+
 <div class="container">
+    <header>
+        <h1>IRON STRENGTH</h1>
+        <p class="subtitle">UNLEASH YOUR POTENTIAL</p>
+    </header>
 
-<h1>3대 운동 1RM 계산기</h1>
+    <div class="input-group">
+        <label>LIFT TYPE</label>
+        <select id="exercise">
+            <option value="bench">BENCH PRESS</option>
+            <option value="squat">SQUAT</option>
+            <option value="deadlift">DEADLIFT</option>
+        </select>
+    </div>
 
-<label>운동 선택</label>
-<select id="exercise">
-<option value="bench">벤치프레스</option>
-<option value="squat">스쿼트</option>
-<option value="deadlift">데드리프트</option>
-</select>
+    <div class="input-group">
+        <label>BODYWEIGHT (KG)</label>
+        <input type="number" id="bodyweight" placeholder="75">
+    </div>
 
-<label>체중 (kg)</label>
-<input type="number" id="bodyweight" placeholder="예: 70">
+    <div class="input-group">
+        <label>LIFT WEIGHT (KG)</label>
+        <input type="number" id="weight" placeholder="100">
+    </div>
 
-<label>중량 (kg)</label>
-<input type="number" id="weight" placeholder="예: 80">
+    <div class="input-group">
+        <label>REPS PERFORMED</label>
+        <input type="number" id="reps" placeholder="1" value="1">
+    </div>
 
-<label>반복 횟수</label>
-<input type="number" id="reps" placeholder="예: 5">
+    <button onclick="calculate()">MEASURE POWER</button>
 
-<button onclick="calculate()">계산하기</button>
-
-<div class="result" id="result"></div>
-
+    <div id="result" class="result">
+        <!-- Results will be injected here via JS -->
+    </div>
+    
+    <div class="disclaimer">
+        * Based on general strength standards relative to bodyweight.
+    </div>
 </div>
 
-<script>
-
-function calculate(){
-
-let exercise = document.getElementById("exercise").value;
-let bodyweight = parseFloat(document.getElementById("bodyweight").value);
-let weight = parseFloat(document.getElementById("weight").value);
-let reps = parseFloat(document.getElementById("reps").value);
-
-if(!bodyweight || !weight || !reps){
-document.getElementById("result").innerText="모든 값을 입력해주세요.";
-return;
-}
-
-let oneRM = weight * (1 + reps/30);
-
-let ratio = oneRM / bodyweight;
-
-let percentile="";
-let level="";
-
-if(exercise=="bench"){
-
-if(ratio < 0.75){
-percentile="하위 80%";
-level="Beginner";
-}
-else if(ratio < 1.0){
-percentile="상위 50%";
-level="Intermediate";
-}
-else if(ratio < 1.5){
-percentile="상위 20%";
-level="Advanced";
-}
-else{
-percentile="상위 5%";
-level="Elite";
-}
-
-}
-
-if(exercise=="squat"){
-
-if(ratio < 1.25){
-percentile="하위 80%";
-level="Beginner";
-}
-else if(ratio < 1.75){
-percentile="상위 50%";
-level="Intermediate";
-}
-else if(ratio < 2.25){
-percentile="상위 20%";
-level="Advanced";
-}
-else{
-percentile="상위 5%";
-level="Elite";
-}
-
-}
-
-if(exercise=="deadlift"){
-
-if(ratio < 1.5){
-percentile="하위 80%";
-level="Beginner";
-}
-else if(ratio < 2.0){
-percentile="상위 50%";
-level="Intermediate";
-}
-else if(ratio < 2.75){
-percentile="상위 20%";
-level="Advanced";
-}
-else{
-percentile="상위 5%";
-level="Elite";
-}
-
-}
-
-document.getElementById("result").innerHTML=
-
-"예상 1RM: " + oneRM.toFixed(1) + " kg <br><br>" +
-"체중 대비 비율: " + ratio.toFixed(2) + " x BW <br><br>" +
-"수준: " + level + "<br>" +
-"대략 " + percentile + " 수준";
-
-}
-
-</script>
+<script src="main.js"></script>
 
 </body>
 </html>

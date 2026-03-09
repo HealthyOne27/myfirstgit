@@ -1,1 +1,259 @@
-/* Add styles here */
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --primary-color: #ff3c00; /* Intense Orange/Red */
+    --text-main: #e0e0e0;
+    --text-muted: #a0a0a0;
+    --font-head: 'Black Ops One', cursive;
+    --font-body: 'Roboto Condensed', sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Background Texture */
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 50% 50%, rgba(255, 60, 0, 0.05) 0%, transparent 60%),
+        repeating-linear-gradient(45deg, #151515 0, #151515 1px, transparent 0, transparent 50%);
+    background-size: 100% 100%, 20px 20px;
+    z-index: -1;
+}
+
+.container {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    width: 90%;
+    max-width: 400px;
+    border: 2px solid #333;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    border-radius: 4px; /* Industrial sharp edges */
+}
+
+/* Header */
+header h1 {
+    font-family: var(--font-head);
+    font-size: 2.5rem;
+    margin: 0;
+    color: var(--text-main);
+    text-shadow: 2px 2px 0px #000;
+    letter-spacing: 2px;
+}
+
+.subtitle {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Inputs */
+.input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+input, select {
+    width: 100%;
+    background: #000;
+    border: 1px solid #444;
+    color: #fff;
+    padding: 12px;
+    font-family: var(--font-body);
+    font-size: 1.1rem;
+    font-weight: bold;
+    box-sizing: border-box;
+    transition: border-color 0.3s;
+}
+
+input:focus, select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 8px rgba(255, 60, 0, 0.3);
+}
+
+/* Button */
+button {
+    width: 100%;
+    background: var(--primary-color);
+    color: #000;
+    border: none;
+    padding: 15px;
+    font-family: var(--font-head);
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: transform 0.1s, background 0.3s;
+    margin-top: 1rem;
+}
+
+button:hover {
+    background: #ff5e2e;
+    transform: scale(1.02);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Disclaimer */
+.disclaimer {
+    margin-top: 2rem;
+    font-size: 0.7rem;
+    color: #555;
+    font-style: italic;
+}
+
+/* RESULTS AREA */
+.result {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: #111;
+    border: 1px solid #333;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+.result.tier-common, .result.tier-uncommon, .result.tier-rare, .result.tier-epic, .result.tier-legendary, .result.tier-god {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stat-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: #aaa;
+}
+
+.stat-row strong {
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.divider {
+    height: 1px;
+    background: #333;
+    margin: 1rem 0;
+}
+
+.rank-title {
+    font-family: var(--font-head);
+    font-size: 2rem;
+    margin: 0.5rem 0;
+    text-transform: uppercase;
+    line-height: 1;
+}
+
+.percentile-display {
+    font-size: 1.2rem;
+    color: #fff;
+}
+
+.highlight {
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.encouragement {
+    margin-top: 1rem;
+    color: #bbb;
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+/* TIERS STYLING */
+
+/* Trash/Beginner */
+.tier-trash .rank-title { color: #7f8c8d; }
+.tier-trash .highlight { color: #7f8c8d; }
+
+/* Common/Novice */
+.tier-common .rank-title { color: #bdc3c7; }
+.tier-common .highlight { color: #bdc3c7; }
+
+/* Uncommon/Intermediate */
+.tier-uncommon .rank-title { color: #2ecc71; }
+.tier-uncommon .highlight { color: #2ecc71; }
+
+/* Rare/Advanced */
+.tier-rare .rank-title { color: #3498db; }
+.tier-rare .highlight { color: #3498db; }
+
+/* Epic/Elite - Gold/Glow */
+.tier-epic .rank-title { 
+    color: #f1c40f; 
+    text-shadow: 0 0 10px rgba(241, 196, 15, 0.5);
+}
+.tier-epic .highlight { color: #f1c40f; }
+
+/* Legendary/Freak - Red/Intense */
+.tier-legendary .rank-title { 
+    color: #e74c3c;
+    text-shadow: 0 0 15px rgba(231, 76, 60, 0.7);
+    animation: pulse 2s infinite;
+}
+.tier-legendary .highlight { color: #e74c3c; }
+
+/* Godlike - Purple/Rainbow/Shake */
+.tier-god {
+    border: 2px solid #9b59b6;
+    box-shadow: 0 0 30px rgba(155, 89, 182, 0.4);
+}
+.tier-god .rank-title { 
+    color: #d255ff;
+    text-shadow: 0 0 20px #d255ff;
+    font-size: 2.5rem;
+    animation: shake 0.5s infinite;
+}
+.tier-god .highlight { color: #d255ff; }
+.tier-god .encouragement { color: #fff; font-weight: bold; }
+
+/* Animations */
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.8; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes shake {
+    0% { transform: translate(1px, 1px) rotate(0deg); }
+    10% { transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { transform: translate(-3px, 0px) rotate(1deg); }
+    30% { transform: translate(3px, 2px) rotate(0deg); }
+    40% { transform: translate(1px, -1px) rotate(1deg); }
+    50% { transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { transform: translate(-3px, 1px) rotate(0deg); }
+    70% { transform: translate(3px, 1px) rotate(-1deg); }
+    80% { transform: translate(-1px, -1px) rotate(1deg); }
+    90% { transform: translate(1px, 2px) rotate(0deg); }
+    100% { transform: translate(1px, -2px) rotate(-1deg); }
+}
