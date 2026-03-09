@@ -82,11 +82,17 @@ function calculate() {
     const exercise = document.getElementById("exercise").value;
     const bodyweight = parseFloat(document.getElementById("bodyweight").value);
     const weight = parseFloat(document.getElementById("weight").value);
-    const reps = parseFloat(document.getElementById("reps").value) || 1;
+    let reps = parseFloat(document.getElementById("reps").value) || 1;
 
     if (!bodyweight || !weight) {
         alert("체중과 중량을 입력해주세요.");
         return;
+    }
+
+    if (reps > 10) {
+        alert("정확한 1RM 추정을 위해 반복 횟수는 10회 이하로 입력해주세요. (10회 초과 시 정확도가 급격히 떨어집니다)");
+        reps = 10;
+        document.getElementById("reps").value = 10;
     }
 
     const oneRM = calculateOneRM(weight, reps);
