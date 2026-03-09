@@ -25,7 +25,30 @@ const translations = {
         footerRights: "© 2026 IRON STRENGTH. All rights reserved.",
         privacy: "개인정보처리방침",
         terms: "이용약관",
-        contact: "문의하기"
+        contact: "문의하기",
+        
+        // Detailed Sections
+        algoTitle: "1RM 계산의 과학적 원리",
+        algoDesc1: "1RM(One Repetition Maximum)은 단 한 번의 반복으로 들어올릴 수 있는 최대 무게를 의미합니다. 직접적인 1RM 측정은 부상의 위험이 크기 때문에, 본 서비스는 검증된 <b>Epley 공식</b>을 사용하여 안전하게 추정치를 계산합니다.",
+        formulaTitle: "사용된 계산 공식",
+        formulaDesc: "(w: 중량, r: 반복 횟수)",
+        scalingTitle: "체급별 보정(Allometric Scaling)이란?",
+        scalingDesc: "단순히 '체중 대비 몇 배를 드는가'로 근력을 평가하는 것은 공정하지 않을 수 있습니다. 생물학적으로 체중이 가벼울수록 근육의 횡단면적이 체중 대비 넓어 상대적 근력이 높게 나타나는 경향이 있습니다. 아이언 스트렝스는 이러한 <b>Allometric Scaling</b> 기법을 적용하여, 당신의 체급에서 실제 근력 수준이 어느 정도인지 통계적으로 가장 유사한 백분위를 산출합니다.",
+        
+        guideTitle: "근력 성장을 위한 가이드",
+        guideDesc: "자신의 현재 위치를 파악하는 것은 성장의 첫걸음입니다. 산출된 백분위는 일반적인 훈련 인구의 데이터를 기반으로 하며, 다음과 같은 기준으로 분류됩니다.",
+        levelBeginner: "입문자 (Beginner): 기초적인 자세 습득과 근신경계 활성화가 필요한 단계입니다.",
+        levelIntermediate: "중급자 (Intermediate): 체계적인 프로그램과 영양 섭취를 통해 점진적 과부하를 실천하는 단계입니다.",
+        levelAdvanced: "상급자 (Advanced): 자신의 약점을 파악하고 고도의 기술적 완성도를 갖춘 단계입니다.",
+        levelElite: "선수급 (Elite): 유전적 한계와 오랜 수련이 결합된 상위 1%의 영역입니다.",
+        
+        faqTitle: "자주 묻는 질문 (FAQ)",
+        faqQ1: "Q. 1RM을 직접 측정하는 것보다 계산기가 더 안전한가요?",
+        faqA1: "네, 그렇습니다. 1RM을 직접 측정하려면 실패 지점까지 무게를 올려야 하므로 부상 위험이 높습니다. 특히 초보자의 경우 자세가 무너질 수 있습니다. 본 계산기는 3~5회 반복 가능한 무게(3RM~5RM)를 통해 안전하게 최대 근력을 추정할 수 있도록 돕습니다.",
+        faqQ2: "Q. 체급별 보정(Allometric Scaling)은 왜 필요한가요?",
+        faqA2: "체중이 60kg인 사람이 100kg을 드는 것과, 체중 100kg인 사람이 100kg을 드는 것은 근력 수준이 다릅니다. 또한, 체중이 늘어날수록 근력도 정비례해서 늘어나지 않습니다(체중 대비 근력 효율 감소). 이러한 생물학적 특성을 반영하여 공정한 비교를 하기 위해 보정 계수를 사용합니다.",
+        faqQ3: "Q. 백분위 데이터의 출처는 어디인가요?",
+        faqA3: "본 서비스의 데이터는 Strength Level, Wilks Coefficient 등 전 세계 수백만 명의 리프팅 데이터를 종합한 통계 모델을 기반으로 합니다. 다만, 개인의 신체 비율(팔/다리 길이)이나 훈련 경력에 따라 실제 체감 난이도는 다를 수 있습니다."
     },
     en: {
         title: "IRON STRENGTH",
@@ -53,7 +76,30 @@ const translations = {
         footerRights: "© 2026 IRON STRENGTH. All rights reserved.",
         privacy: "Privacy Policy",
         terms: "Terms of Use",
-        contact: "Contact"
+        contact: "Contact",
+
+        // Detailed Sections
+        algoTitle: "The Science of 1RM Calculation",
+        algoDesc1: "1RM (One Repetition Maximum) refers to the maximum weight you can lift for a single repetition. Since direct 1RM testing carries a high risk of injury, this service uses the validated <b>Epley Formula</b> to safely estimate your maximum strength.",
+        formulaTitle: "The Formula Used",
+        formulaDesc: "(w: weight, r: reps)",
+        scalingTitle: "What is Allometric Scaling?",
+        scalingDesc: "Simply evaluating strength by 'how many times your bodyweight you lift' may not be fair. Biologically, lighter individuals tend to have a larger muscle cross-sectional area relative to their bodyweight, leading to higher relative strength. Iron Strength applies <b>Allometric Scaling</b> to calculate a percentile that is statistically more accurate for your specific weight class.",
+        
+        guideTitle: "Guide to Strength Progression",
+        guideDesc: "Knowing where you stand is the first step toward growth. The calculated percentiles are based on data from the general training population and are categorized as follows:",
+        levelBeginner: "Beginner: Focused on learning basic form and neuromuscular activation.",
+        levelIntermediate: "Intermediate: Practicing progressive overload with structured programs and nutrition.",
+        levelAdvanced: "Advanced: Identifying weaknesses and achieving high technical mastery.",
+        levelElite: "Elite: The top 1% territory, combining genetic potential with years of dedication.",
+        
+        faqTitle: "Frequently Asked Questions (FAQ)",
+        faqQ1: "Q. Is a calculator safer than testing my 1RM directly?",
+        faqA1: "Yes, absolutely. Direct 1RM testing requires lifting to failure, which carries a high risk of injury, especially for beginners. This calculator helps you safely estimate maximum strength using a weight you can lift for 3–5 reps (3RM–5RM).",
+        faqQ2: "Q. Why is Allometric Scaling necessary?",
+        faqA2: "A 60kg person lifting 100kg has a different strength level than a 100kg person lifting 100kg. Furthermore, strength does not increase linearly with bodyweight (relative efficiency decreases as weight increases). Scaling factors account for these biological traits for a fairer comparison.",
+        faqQ3: "Q. Where does the percentile data come from?",
+        faqA3: "Our data is based on statistical models synthesized from millions of lifting records worldwide (e.g., Strength Level, Wilks Coefficient). Note that individual factors like body proportions or training history can affect the perceived difficulty."
     }
 };
 
@@ -64,7 +110,7 @@ function setLanguage(lang) {
     document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (translations[lang][key]) {
-            el.innerText = translations[lang][key];
+            el.innerHTML = translations[lang][key];
         }
     });
 
