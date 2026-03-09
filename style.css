@@ -208,6 +208,14 @@ input, select {
     font-size: 1rem;
 }
 
+.input-helper {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    margin-top: 5px;
+    font-style: italic;
+    opacity: 0.8;
+}
+
 button {
     width: 100%;
     background: var(--primary-color);
